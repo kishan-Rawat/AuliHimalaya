@@ -1,0 +1,4638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auli Himalaya Homestay – Luxury in the Clouds</title>
+    <meta name="description"
+        content="Family-run luxury homestay in Joshimath with panoramic Himalayan views, home-cooked meals & warm hospitality.">
+
+    <!-- Fonts: Playfair Display (headings) + Inter (body) – 2025 premium combo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons & Swiper -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --green: #2d6a4f;
+            --green-light: #40916c;
+            --green-gradient: linear-gradient(135deg, #2d6a4f 0%, #40916c 100%);
+            --gold: #d4a574;
+            --text: #1a1a1a;
+            --bg: #fafaf8;
+            --card: rgba(255, 255, 255, 0.85);
+            --shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 40px 80px rgba(0, 0, 0, 0.16);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #ffffff;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--green);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin: 4rem 0 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: var(--green-gradient);
+            display: block;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* ========== HEADER – GLASS + ELEGANT ========== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 90px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.4s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -8px;
+            left: 50%;
+            background: var(--green-gradient);
+            transition: all 0.4s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--green);
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Menu Toggle - Hidden on desktop */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: var(--green);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Mobile Menu Active States */
+        .menu-active .menu-toggle span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .menu-active .menu-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-active .menu-toggle span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        header.scrolled .header-container {
+            padding: 0.7rem 40px;
+        }
+
+        header.scrolled .logo-container img {
+            height: 60px;
+        }
+
+        header {
+            transform: translateY(0);
+            transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        header.hide {
+            transform: translateY(-110%);
+        }
+
+        header.on-hero {
+            background: transparent;
+            backdrop-filter: none;
+            border-bottom: none;
+            box-shadow: none;
+        }
+
+        /* Optional: better contrast on hero */
+        header.on-hero nav a {
+            color: white;
+        }
+
+        header.on-hero nav a::after {
+            background: white;
+        }
+
+        /* ========== SECTION SPACING SYSTEM ========== */
+        section {
+            padding: 80px 0;
+            margin: 0 !important;
+            /* Force consistent padding-based rhythm */
+            position: relative;
+        }
+
+        .section-gap-large {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+
+        .section-gap-small {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        /* ========== AMENITIES GRID FIX ========== */
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 640px) {
+            .amenities-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+
+            .amenity-item {
+                padding: 1.5rem 1rem !important;
+            }
+
+            .amenity-item div {
+                width: 60px !important;
+                height: 60px !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .amenity-item i {
+                font-size: 1.5rem !important;
+            }
+
+            .amenity-item h4 {
+                font-size: 1.1rem !important;
+                margin-bottom: 0.4rem !important;
+            }
+
+            .amenity-item p {
+                font-size: 0.85rem !important;
+            }
+        }
+
+        /* ========== NEW HERO SECTION ========== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+            background: #000;
+            isolation: isolate;
+        }
+
+        /* Background Layers */
+        .hero__background {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .hero__background-layer {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .hero__background-layer--active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .hero__video,
+        .hero__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        /* YouTube Background Cover Hack */
+        .hero__background-layer--video {
+            overflow: hidden;
+        }
+
+        iframe.hero__video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            min-height: 100vh;
+            min-width: 177.77vh; /* 16:9 aspect ratio */
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border: none;
+        }
+
+        .hero__video-fallback {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Background Overlays */
+        .hero__background-layer::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0.1) 0%,
+                    rgba(0, 0, 0, 0.3) 50%,
+                    rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+        }
+
+        .hero__background-layer--image::after {
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0.1) 0%,
+                    rgba(0, 0, 0, 0.4) 60%,
+                    rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        /* Hero Content */
+        .hero__content {
+            position: relative;
+            z-index: 5;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Video Phase Content */
+        .hero__video-content {
+            position: absolute;
+            top: 22%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            opacity: 1;
+            transition: opacity 0.8s ease;
+        }
+
+        .hero__video-content--hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Greeting Tag */
+        .hero__greeting {
+            margin-bottom: 2rem;
+            pointer-events: auto;
+        }
+
+        .hero__greeting-tag {
+            display: inline-block;
+            padding: 0.5rem 2.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: white;
+            opacity: 0.8;
+        }
+
+        /* Video Headline */
+        .hero__video-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 8vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        /* Video Subtitle */
+        .hero__video-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            line-height: 1.4;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+            color: white;
+        }
+
+        /* Image Phase Content */
+        .hero__image-content {
+            position: absolute;
+            bottom: 3rem;
+            left: 3rem;
+            max-width: 700px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            pointer-events: none;
+        }
+
+        .hero__image-content--active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Brand Mark */
+        .hero__brand-mark {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero__brand-line {
+            width: 4px;
+            height: 40px;
+            background: var(--green-gradient);
+        }
+
+        .hero__brand-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            letter-spacing: 1.2px;
+            text-transform: none;
+            font-style: italic;
+            font-weight: 700;
+            opacity: 0.78;
+            color: rgb(64, 145, 108);
+        }
+
+        /* Welcome Headline */
+        .hero__welcome-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+            color: white;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Welcome Description */
+        .hero__welcome-description {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            color: white;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Controls */
+        .hero__controls {
+            position: absolute;
+            bottom: 3rem;
+            right: 3rem;
+            z-index: 10;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .hero__controls:hover {
+            opacity: 1;
+        }
+
+        .hero__toggle-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .hero__toggle-btn:hover {
+            background: rgba(0, 0, 0, 0.6);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: rotate(90deg);
+        }
+
+        .hero__toggle-btn:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+
+        /* Auto Transition Indicator */
+        .hero__auto-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 8;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Greeting Text Animation */
+        .hero__greeting-text {
+            display: inline-block;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            will-change: opacity, transform;
+        }
+
+        .hero__greeting-text--fade-out {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .hero__greeting-text--fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading State */
+        .hero--loading .hero__video-content,
+        .hero--loading .hero__image-content {
+            opacity: 0;
+        }
+
+        /* ========== GLASS CARDS – PURE ELEGANCE ========== */
+        .glass {
+            background: var(--card);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 32px;
+            padding: 3.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.6s ease;
+        }
+
+        .glass:hover {
+            transform: translateY(-20px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* ========== DINING SECTION – FLEXIBLE GRID ========== */
+        .dining-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .dining-media-wrapper {
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+            height: 520px;
+            transition: transform 0.8s ease, box-shadow 0.8s ease;
+        }
+
+        .dining-media-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.6s ease;
+        }
+
+        .dining-info-container {
+            padding: 4rem;
+            height: auto;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* ========== ROOM CARDS – LUXURY HORIZONTAL ========== */
+        .room-card {
+            display: flex;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 5rem;
+            transition: all 0.7s ease;
+            background: #fff;
+            /* Cohesive background */
+        }
+
+        .room-card:hover {
+            transform: translateY(-25px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .room-slider {
+            flex: 1;
+            min-width: 0;
+            /* Allow shrinking below 320px on mobile */
+            width: 100%;
+            height: 480px;
+            background: #e9e1e1;
+        }
+
+        .room-slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #faf5f5;
+        }
+
+        /* Video slide – cinematic fit */
+        .video-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* fills frame nicely */
+            border-radius: 0;
+            /* inherits from room-card */
+            background: #000;
+        }
+
+        video::-webkit-media-controls-volume-slider,
+        video::-webkit-media-controls-mute-button {
+            display: none !important;
+        }
+
+        .room-info {
+            flex: 1;
+            padding: 4rem;
+            background: linear-gradient(135deg, #ffffff, #f8f8f6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .room-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .room-price {
+            font-size: 2.4rem;
+            background: var(--green-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        /* Fullscreen button */
+        .fullscreen-btn {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 16px;
+            backdrop-filter: blur(4px);
+        }
+
+        .fullscreen-btn:hover {
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        /* Fullscreen image styling */
+        .fullscreen-img {
+            object-fit: contain !important;
+            background: #000;
+        }
+
+        .btn {
+            align-self: flex-start;
+            margin-top: 2rem;
+            padding: 18px 50px;
+            background: var(--green-gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 15px 35px rgba(45, 106, 79, 0.4);
+            transition: all 0.4s;
+        }
+
+        .btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px rgba(45, 106, 79, 0.5);
+        }
+
+        /* ========== FLOATING WHATSAPP – ELEGANT PILL ========== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: var(--green-gradient);
+            color: white;
+            padding: 18px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 20px 40px rgba(45, 106, 79, 0.5);
+            z-index: 999;
+            transition: all 0.4s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float i {
+            font-size: 28px;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08) translateY(-5px);
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.2)
+            }
+        }
+
+        /* ========== FOOTER – CLEAN & LUXE ========== */
+        footer {
+            background: #0f1b17;
+            color: #ccc;
+            padding: 6rem 40px 3rem;
+            margin-top: 8rem;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            text-align: left;
+        }
+
+        .footer-grid a {
+            color: #95d5b2;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-grid a:hover {
+            color: white;
+        }
+
+        footer a {
+            color: #95d5b2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .social-circle {
+            width: 44px;
+            height: 44px;
+            background: rgba(149, 213, 178, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #95d5b2;
+            font-size: 1.1rem;
+            transition: all 0.4s;
+        }
+
+        .social-circle:hover {
+            background: var(--green-gradient);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* FIX: Footer logo visibility + better contrast */
+        footer img {
+            height: 90px;
+            width: auto;
+            border-radius: 12px;
+            filter: brightness(1.1);
+        }
+
+        .footer-main-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem 3rem;
+            align-items: start;
+        }
+
+        .footer-col {
+            grid-column: span 3;
+        }
+
+        .footer-tagline {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-platforms-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-copyright {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid rgba(149, 213, 178, 0.15);
+            text-align: center;
+            font-size: 0.88rem;
+            color: #666;
+        }
+
+        footer p {
+            opacity: 0.85;
+        }
+
+        /* Make dining video overlay elegant */
+        /* Make dining video overlay elegant */
+        .dining-media-wrapper:hover .video-overlay {
+            opacity: 0 !important;
+        }
+
+        .dining-media-wrapper:hover {
+            transform: scale(1.025);
+            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Amenity hover lift effect */
+        .amenity-item:hover {
+            transform: translateY(-15px);
+        }
+
+        .amenity-item:hover div:first-child {
+            transform: scale(1.12);
+            box-shadow: 0 30px 60px rgba(45, 106, 79, 0.45);
+        }
+
+        /* Nearby cards luxury style */
+        .nearby-card {
+            background: var(--card);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.6s ease;
+            cursor: pointer;
+        }
+
+        .nearby-card:hover {
+            transform: translateY(-20px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .nearby-video {
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* REELS GALLERY – FINAL FIXED VERSION */
+        .reels-container {
+            height: 720px;
+            border-radius: 40px;
+            overflow: hidden;
+        }
+
+        /* ===== REELS LOTTIE BOTTOM ANIMATION ===== */
+        .reels-lottie-fill {
+            margin-top: auto;
+            padding-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        .reels-lottie-fill span {
+            font-size: 0.9rem;
+            color: #6b7f73;
+        }
+
+        /* Hide on tablet & mobile */
+        @media (max-width: 992px) {
+            .reels-lottie-fill {
+                display: none;
+            }
+        }
+
+        .thumbnail-item {
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .thumbnail-item:hover {
+            background: rgba(45, 106, 79, 0.15) !important;
+            transform: translateX(6px);
+        }
+
+        .thumbnail-item.active {
+            background: rgba(45, 106, 79, 0.18) !important;
+            border-color: var(--green) !important;
+        }
+
+        .reel-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            display: none;
+        }
+
+        .reel-video.active {
+            opacity: 1;
+            display: block;
+            z-index: 1;
+        }
+
+        .progress-bar .bar {
+            flex: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+        }
+
+        .progress-bar .bar.active {
+            background: white;
+        }
+
+        .control-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: none;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+
+        /* ===== Fullscreen Gallery ===== */
+        .fullscreen-gallery {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            display: none;
+            z-index: 9999;
+        }
+
+        .fullscreen-gallery.active {
+            display: block;
+        }
+
+        .fullscreen-gallery img {
+            width: 100%;
+            height: 100vh;
+            object-fit: contain;
+        }
+
+        .close-fullscreen {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            font-size: 22px;
+            padding: 6px 12px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        /* Responsive Container Class */
+        .container-wide {
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container-wide {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container-wide {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        /* Rules & Location New Styles */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .rules-card {
+            padding: 4.5rem 5rem;
+            border-radius: 40px;
+        }
+
+        .location-card {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 900px;
+            width: 90%;
+            padding: 3.5rem 4.5rem;
+            text-align: center;
+        }
+
+        /* Keep map overlay card fixed on desktop; no hover movement */
+        .location-card:hover {
+            transform: translateX(-50%);
+            box-shadow: var(--shadow);
+        }
+
+        .location-address {
+            font-size: 1.35rem;
+            margin-bottom: 2.5rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        #location .section-title {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 1200px) {
+            .hero__video-content {
+                top: 20%;
+            }
+
+            .hero__image-content {
+                bottom: 0px;
+                padding-bottom: 20px;
+                /* Safe padding from actual edge */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 800px;
+                text-align: center;
+            }
+
+            .hero__brand-mark {
+                justify-content: center;
+            }
+
+            .hero__controls,
+            .hero__auto-indicator {
+                bottom: 0px !important;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .room-title {
+                font-size: 2.2rem;
+            }
+
+            .room-price {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero__video-content {
+                top: 18%;
+            }
+
+            .hero__video-headline {
+                margin-bottom: 1rem;
+            }
+
+            .hero__video-subtitle br,
+            .hero__welcome-description br {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+                margin: 3rem 0 2rem;
+            }
+
+            .room-card {
+                flex-direction: column !important;
+                margin-bottom: 4rem;
+                height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow: hidden !important;
+            }
+
+            .room-slider {
+                flex: none !important;
+                width: 100% !important;
+                height: 320px !important;
+                max-height: 320px !important;
+                border-radius: 40px 40px 0 0 !important;
+                overflow: hidden !important;
+            }
+
+            .room-slider .swiper-slide,
+            .room-slider .img-wrapper {
+                height: 100% !important;
+            }
+
+            .room-slider img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+            }
+
+            .room-info {
+                flex: none !important;
+                width: 100% !important;
+                padding: 1.8rem !important;
+            }
+
+            .glass {
+                padding: 2.5rem;
+            }
+
+            .dining-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
+
+            .dining-media-wrapper {
+                height: 400px !important;
+            }
+
+            .dining-info-container {
+                padding: 2.5rem !important;
+                min-height: auto !important;
+            }
+
+            .reels-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .thumbnails-sidebar {
+                order: 2;
+                margin-top: 2rem;
+            }
+
+            .reels-player {
+                height: 600px;
+            }
+
+            footer>div:first-child {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .footer-col {
+                grid-column: span 1 !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            footer>div:first-child {
+                grid-template-columns: 1fr !important;
+                gap: 2.5rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero__video-content {
+                top: 15%;
+                padding: 0 1rem;
+            }
+
+            .hero__greeting {
+                margin-bottom: 1rem;
+            }
+
+            .hero__greeting-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 1.5rem;
+            }
+
+            .hero__image-content {
+                position: static;
+                margin: 0 auto;
+                padding: 2rem 1rem;
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .hero__brand-mark {
+                justify-content: center;
+            }
+
+            .hero__controls {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .hero__auto-indicator {
+                bottom: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .header-container {
+                padding: 1rem 20px;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            #amenities .amenity-item {
+                padding: 1.5rem 1rem;
+            }
+
+            #rules .glass {
+                padding: 3rem 2rem;
+            }
+
+            #rules [style*="grid-template-columns:1fr 1fr"] {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            #location {
+                height: 80vh;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nearby-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reels-player {
+                height: 500px;
+            }
+
+            .thumbnails-list {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+
+            .thumbnail-item {
+                min-width: 260px;
+            }
+
+            #dining .glass {
+                padding: 2.5rem;
+            }
+
+            #location .glass {
+                padding: 2.5rem 2rem;
+            }
+
+            #location .section-title {
+                font-size: 2.4rem !important;
+            }
+
+            footer>div:first-child {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            footer>div:first-child>div {
+                grid-column: 1 / -1;
+            }
+
+            .social-circle {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 500px;
+            }
+
+            .hero__video-content {
+                top: 12%;
+            }
+
+            .hero__video-headline {
+                line-height: 1.1;
+                margin-bottom: 0.5rem;
+                font-size: clamp(2.5rem, 7vw, 3.5rem);
+            }
+
+            .hero__video-subtitle {
+                line-height: 1.3;
+                font-size: clamp(1rem, 2.5vw, 1.2rem);
+            }
+
+            .hero__image-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero__welcome-description {
+                font-size: clamp(1rem, 2.5vw, 1.2rem);
+            }
+
+            .hero__toggle-btn {
+                width: 55px;
+                height: 55px;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .whatsapp-float span {
+                display: none;
+                /* Hide text on very small screens */
+            }
+
+            .whatsapp-float {
+                padding: 15px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin: 2rem 0 1.5rem;
+            }
+
+            .room-info {
+                padding: 1.5rem;
+            }
+
+            .room-title {
+                font-size: 1.8rem;
+            }
+
+            .room-price {
+                font-size: 1.6rem;
+            }
+
+            .btn {
+                padding: 16px 40px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+
+            .hero__background-layer,
+            .hero__video-content,
+            .hero__image-content,
+            .hero__greeting-text,
+            .hero__toggle-btn,
+            .glass,
+            .room-card,
+            .btn,
+            .whatsapp-float,
+            .amenity-item,
+            .nearby-card {
+                transition: none !important;
+            }
+
+            .hero__toggle-btn:hover,
+            .glass:hover,
+            .room-card:hover,
+            .btn:hover,
+            .whatsapp-float:hover,
+            .amenity-item:hover,
+            .nearby-card:hover {
+                transform: none !important;
+            }
+
+            .whatsapp-float i {
+                animation: none !important;
+            }
+
+            .thumbnail-item:hover {
+                transform: none !important;
+            }
+
+            .control-btn:hover {
+                transform: none !important;
+            }
+        }
+
+        /* ====================== QUICK MOBILE FIXES ====================== */
+        @media (max-width: 768px) {
+
+            /* Navbar Mobile */
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                z-index: 1050;
+            }
+
+            .menu-active nav {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            nav a {
+                font-size: 1.4rem;
+                color: var(--green) !important;
+            }
+
+            header.on-hero nav a::after {
+                background: var(--green);
+            }
+
+            header.on-hero .menu-toggle span {
+                background: white;
+            }
+
+            .menu-active header.on-hero .menu-toggle span {
+                background: var(--green);
+            }
+
+            /* Spacing adjustments */
+            section {
+                padding: 60px 0 !important;
+            }
+
+            /* The "Weird Gap" Fix */
+            #property {
+                margin: 0 !important;
+                padding: 80px 0 !important;
+            }
+
+            /* Hero */
+            .hero {
+                min-height: 620px !important;
+            }
+
+            .hero__video-content {
+                top: 18% !important;
+                padding: 0 1rem !important;
+            }
+
+            .hero__video-headline {
+                font-size: 2.8rem !important;
+            }
+
+            .hero__image-content {
+                position: absolute !important;
+                bottom: 0px !important;
+                padding-bottom: 25px !important;
+                /* Visual baseline */
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 94% !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                margin: 0 !important;
+                z-index: 5;
+            }
+
+            .hero__brand-mark {
+                justify-content: center !important;
+                margin-bottom: 0.4rem !important;
+            }
+
+            .hero__welcome-description {
+                margin-bottom: 0 !important;
+            }
+
+            .hero__controls,
+            .hero__auto-indicator {
+                bottom: 0px !important;
+            }
+
+            .hero__controls {
+                right: 15px !important;
+            }
+
+            /* Map / Location */
+            #location {
+                height: auto !important;
+                min-height: 500px !important;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #location iframe {
+                position: relative !important;
+                height: 400px !important;
+                width: 100% !important;
+            }
+
+            .location-card {
+                position: relative !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-top: -50px !important;
+                z-index: 10;
+                padding: 2.5rem 1.5rem !important;
+            }
+
+            .location-address {
+                font-size: 1.1rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            #location .section-title {
+                font-size: 1.8rem !important;
+            }
+
+            /* Rules Fix */
+            .rules-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2.5rem !important;
+            }
+
+            .rules-card {
+                padding: 2.5rem 1.5rem !important;
+            }
+
+            #rules {
+                padding: 4rem 0 !important;
+            }
+
+            /* About Host Section Fix */
+            .about-host-section {
+                padding: 4rem 15px !important;
+                margin: 0 !important;
+            }
+
+            .about-host-container {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
+
+            .host-card {
+                padding: 2.5rem 1.5rem !important;
+            }
+
+            /* Dining */
+            #dining .dining-media,
+            #dining .glass {
+                height: auto !important;
+                min-height: 320px !important;
+            }
+
+            #dining>div {
+                gap: 2rem !important;
+            }
+
+            /* Footer */
+            footer {
+                padding: 4rem 20px 2rem !important;
+            }
+
+            footer .footer-grid {
+                gap: 2.5rem !important;
+            }
+
+            footer .footer-col:last-child>div[style*="display:flex"] {
+                justify-content: center !important;
+            }
+
+            /* General */
+            .glass {
+                padding: 2.5rem !important;
+            }
+
+            .btn {
+                padding: 16px 40px !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+        }
+
+        @media (max-width: 992px) {
+
+            /* Reels Gallery */
+            .reels-container {
+                grid-template-columns: 1fr !important;
+                height: auto !important;
+            }
+
+            .thumbnails-list {
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                padding-bottom: 1rem !important;
+            }
+
+            .reel-video {
+                height: 520px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.9rem !important;
+            }
+
+            .hero__video-headline {
+                font-size: 2.6rem !important;
+            }
+        }
+
+        /* ====================== END QUICK FIXES ====================== */
+        /* ========== ABOUT HOST – 3D PREMIUM SECTION ========== */
+        /* ========== ABOUT HOST – 3D PREMIUM SECTION (PROTOTYPE MATCHED) ========== */
+
+        /* ====================== SECTION WRAPPER ====================== */
+        .about-host-section {
+            max-width: 1400px;
+            margin: 8rem auto;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .about-host-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            perspective: 1600px;
+        }
+
+        /* ====================== LEFT CARD ====================== */
+        .host-card {
+            padding: 4rem 3.5rem;
+            border-radius: 40px;
+            text-align: center;
+            backdrop-filter: blur(30px);
+        }
+
+        /* ====================== FLIP CARD ====================== */
+        /* ====================== FLIP CARD ====================== */
+        .flip-card {
+            width: 100%;
+            max-width: 280px;
+            height: 360px;
+            margin: 0 auto 2.5rem;
+            perspective: 1400px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* 🔒 LOCK THE 3D BOX */
+        .flip-card-inner {
+            position: relative;
+            /* ✅ CRITICAL */
+            width: 100%;
+            height: 100%;
+            border-radius: 32px;
+            transform-style: preserve-3d;
+            transition: transform 1.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-hover);
+
+            /* prevents size recalculation */
+            contain: layout paint size;
+            will-change: transform;
+        }
+
+        /* flip trigger */
+        .flip-card.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* ====================== CARD FACES ====================== */
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* ✅ explicit */
+            height: 100%;
+            /* ✅ explicit */
+            border-radius: 32px;
+            overflow: hidden;
+            backface-visibility: hidden;
+
+            /* prevents GPU rounding differences */
+            transform: translateZ(0);
+        }
+
+        /* FRONT */
+        .flip-card-front {
+            z-index: 2;
+        }
+
+        /* ====================== BACK SIDE ====================== */
+        .flip-card-back {
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+
+        /* ====================== VIDEO ====================== */
+        .flip-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            /* ✅ removes inline gaps */
+        }
+
+        /* ====================== BACK OVERLAY (FINAL FIX) ====================== */
+        .video-overlay.back-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: flex-end;
+            /* 🔥 bottom aligned */
+            justify-content: center;
+            padding: 1.6rem 1.4rem;
+
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.75),
+                    rgba(0, 0, 0, 0.15));
+
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        /* ====================== PROPERTY CONTENT ====================== */
+        .property-content {
+            text-align: center;
+            color: #ffffff;
+            max-width: 90%;
+
+            transform: translateY(8px);
+            opacity: 0;
+
+            transition: transform 0.7s ease, opacity 0.7s ease;
+            z-index: 5;
+        }
+
+        /* reveal trigger */
+        .flip-card:hover .flip-card-back .property-content,
+        .flip-card.is-flipped .property-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ====================== PROPERTY TYPOGRAPHY ====================== */
+        .property-content h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.55rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+        }
+
+        .property-content p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        /* ====================== PROPERTY TAG ====================== */
+        .property-tag {
+            display: inline-block;
+            padding: 0.45rem 1rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        /* ====================== FLIP INDICATOR ====================== */
+        .flip-indicator {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.55);
+            color: white;
+            font-size: 1.25rem;
+            backdrop-filter: blur(6px);
+            z-index: 6;
+            animation: flipPulse 2.4s infinite;
+        }
+
+        @keyframes flipPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.12);
+                opacity: 1;
+            }
+        }
+
+        /* ====================== HOST TEXT ====================== */
+        .host-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+            background: var(--green-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .host-name {
+            font-size: 1.6rem;
+            color: var(--green-light);
+            margin-bottom: 1rem;
+        }
+
+        .host-quote {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .host-meta {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* ====================== RIGHT COLUMN ====================== */
+        .about-column .section-title {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .about-column.revealed .section-title {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-column p {
+            font-size: 1.25rem;
+            line-height: 1.85;
+            color: #444;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(22px);
+            transition: all 0.8s ease;
+        }
+
+        .about-column.revealed p:nth-of-type(1) {
+            transition-delay: 0.35s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-column.revealed p:nth-of-type(2) {
+            transition-delay: 0.5s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ====================== CTA ====================== */
+        .cta-box {
+            background: var(--green-gradient);
+            padding: 1.9rem 2.6rem;
+            border-radius: 26px;
+            box-shadow: var(--shadow-hover);
+            margin-top: 1.2rem;
+            text-align: center;
+            font-size: 1.3rem;
+            opacity: 0;
+            transform: translateY(30px) scale(0.92);
+            transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .about-column.revealed .cta-box {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 0.65s;
+        }
+
+        .cta-box,
+        .cta-box p,
+        .cta-box strong {
+            color: #ffffff !important;
+        }
+
+        /* ====================== RESPONSIVE ====================== */
+        @media (max-width: 992px) {
+            .about-host-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            /* Keep map overlay card fixed on desktop; no hover movement */
+            .location-card:hover {
+                transform: translateX(-50%);
+                box-shadow: var(--shadow);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-host-section {
+                padding: 0 24px;
+            }
+
+            .host-title {
+                font-size: 2rem;
+            }
+
+            .property-content h5 {
+                font-size: 1.35rem;
+            }
+
+            .property-content p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ========== NEARBY ATTRACTIONS GALLERY (FROM UMAP) ========== */
+        .nearby-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nearby-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            /* Slightly larger and more premium */
+            color: var(--green);
+            margin: 0 0 1.5rem;
+            transform: translateY(80px);
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1),
+                opacity 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            display: inline-block;
+        }
+
+        .magic-word {
+            position: relative;
+            color: var(--green);
+            display: inline-block;
+        }
+
+        .magic-word::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            /* Adjust to sit right above the text */
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background: var(--green-gradient);
+            border-radius: 4px;
+            transform: scaleX(0);
+            transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.8s;
+            transform-origin: center;
+        }
+
+        .nearby-header.visible .magic-word::before {
+            transform: scaleX(1);
+        }
+
+        .nearby-header p {
+            font-size: 1.35rem;
+            /* Matched to prototype's impactful size */
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+            transform: translateY(60px);
+            opacity: 0;
+            transition: transform 1.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s,
+                opacity 1.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+        }
+
+        .nearby-header.visible h2,
+        .nearby-header.visible p {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Decorative logic handles by magic-word::before for cleaner focus */
+        .nearby-header.visible::before {
+            display: none;
+        }
+
+        /* Floating background shapes logic */
+        .floating-shapes {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-shapes div {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(45, 106, 79, 0.12), transparent);
+            filter: blur(60px);
+            pointer-events: none;
+            will-change: transform;
+            animation: float-around 20s infinite ease-in-out;
+        }
+
+        @keyframes float-around {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            33% {
+                transform: translate(-40px, 30px) rotate(10deg) scale(1.1);
+            }
+
+            66% {
+                transform: translate(30px, -30px) rotate(-10deg) scale(0.95);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+        }
+
+        .floating-shapes div:nth-child(1) {
+            width: 350px;
+            height: 350px;
+            top: -10%;
+            left: -5%;
+            animation-duration: 25s;
+        }
+
+        .floating-shapes div:nth-child(2) {
+            width: 450px;
+            height: 450px;
+            bottom: -15%;
+            right: -10%;
+            animation-delay: -5s;
+            animation-duration: 30s;
+        }
+
+        .floating-shapes div:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            top: 40%;
+            left: 30%;
+            animation-delay: -10s;
+            animation-duration: 22s;
+            opacity: 0.6;
+        }
+
+
+        .near-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2.8rem;
+            perspective: 1600px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
+        }
+
+        .near-grid.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .attraction-card {
+            position: relative;
+            border-radius: 32px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.5s ease;
+            transform-style: preserve-3d;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .near-grid.visible .attraction-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-14px) rotateX(4deg) rotateY(-4deg);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-media {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .card-media img,
+        .card-media video,
+        .card-media iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-media video {
+            opacity: 0;
+            position: absolute;
+            inset: 0;
+            border: none;
+        }
+
+        .card-media iframe {
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            border: none;
+            pointer-events: none;
+        }
+
+        .attraction-card:hover .card-media img {
+            opacity: 0;
+            transform: scale(1.14);
+        }
+
+        .attraction-card:hover .card-media video {
+            opacity: 1;
+            transform: scale(1.08);
+        }
+
+        .attraction-card:hover .card-media iframe {
+            opacity: 1;
+            /* Combined translate from base state + hover scale */
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        .lottie-blended-element {
+            position: relative;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            grid-column: span 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 320px;
+            overflow: visible;
+            border-radius: 32px;
+            background: transparent;
+            isolation: isolate;
+        }
+
+        .near-grid.visible .lottie-blended-element {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1s;
+        }
+
+        .lottie-background-blend {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 32px;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 65%, rgba(120, 95, 65, 0.08), transparent 60%),
+                linear-gradient(135deg, rgba(240, 244, 241, 0.96), rgba(250, 252, 252, 0.94));
+            box-shadow: 0 2px 20px -2px rgba(45, 106, 79, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .lottie-iframe-blend {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            border: none;
+            background: transparent;
+            filter: brightness(1) contrast(1.08) saturate(1.05);
+            z-index: 4;
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.8rem 1.6rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.4), transparent);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--green);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-distance {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        .card-directions {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 10px 18px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-directions:hover {
+            background: white;
+            color: var(--green);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .amenity-item:hover div {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(45, 106, 79, 0.4) !important;
+        }
+
+        .amenity-item div {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Modal Styles */
+        .nearby-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 2rem;
+        }
+
+        .nearby-modal.active {
+            display: flex;
+        }
+
+        .nearby-modal-content {
+            max-width: 920px;
+            width: 100%;
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .nearby-modal-media {
+            height: 460px;
+            background: #111;
+        }
+
+        .nearby-modal-media img,
+        .nearby-modal-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nearby-modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .nearby-modal-info {
+            padding: 2rem;
+        }
+
+        .inspirational-quote {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.8rem 2rem 1rem;
+            z-index: 5;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 2s;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .near-grid.visible .lottie-blended-element .inspirational-quote {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quote-text-box {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--green);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 1.2rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .quote-text-box::before {
+            content: '"';
+            position: absolute;
+            top: -5px;
+            left: 10px;
+            font-size: 3rem;
+            color: rgba(45, 106, 79, 0.1);
+            font-family: serif;
+        }
+
+        .floating-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: particle-float 10s infinite ease-in-out;
+        }
+
+        /* ========== REELS VIDEO SHARED STYLES ========== */
+        .reel-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            border: none;
+            background: #000;
+        }
+
+        /* YouTube Cover Fix: Supersize iframe to eliminate letterboxing */
+        iframe.reel-video {
+            width: 400%; /* Wide enough to cover vertical container with landscape video */
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) !important;
+        }
+
+        .reel-video.active {
+            display: block;
+        }
+
+        @keyframes particle-float {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.2);
+                opacity: 0.5;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .near-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nearby-modal-media {
+                height: 320px;
+            }
+            
+            /* Add line under Explore in mobile view */
+            .footer-col:nth-child(2) h4 {
+                position: relative;
+                display: inline-block;
+                padding-bottom: 0.4rem;
+            }
+            .footer-col:nth-child(2) h4::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: var(--green-gradient);
+                border-radius: 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Elegant Floating WhatsApp -->
+    <a href="https://wa.me/8800229640?text=Namaste! I'd like to book a stay at Auli Himalaya Homestay"
+        class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Book via WhatsApp</span>
+    </a>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="img/logo.jpg" alt="Auli Himalaya Homestay Logo">
+            </div>
+
+            <!-- Hamburger Menu for Mobile -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#dining">Dining</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                    <li><a href="#location">Location</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- FIXED Hero Section -->
+        <!-- ==================== NEW HERO SECTION ==================== -->
+        <section id="home" class="hero" aria-label="Hero section with video and image backgrounds">
+            <!-- Background Layers -->
+            <div class="hero__background">
+                <!-- Video Background Layer -->
+                <div class="hero__background-layer hero__background-layer--video hero__background-layer--active">
+                    <!-- Fallback Image -->
+                    <img src="https://images.unsplash.com/photo-1596394516093-9b9e54caf5e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                        alt="Snowy mountain landscape" class="hero__video-fallback">
+
+                    <iframe id="heroVideo" class="hero__video" 
+                        src="https://www.youtube.com/embed/x-qHJp8sBko?autoplay=1&mute=1&loop=1&playlist=x-qHJp8sBko&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1" 
+                        allow="autoplay; encrypted-media" allowfullscreen
+                        aria-label="Aerial drone footage of Auli mountains">
+                    </iframe>
+                </div>
+
+                <!-- Image Background Layer -->
+                <div class="hero__background-layer hero__background-layer--image">
+                    <img src="img/img111h.jpg" alt="Auli Himalaya Homestay exterior" class="hero__image">
+                </div>
+            </div>
+
+            <!-- Hero Content Container -->
+            <div class="hero__content">
+                <!-- Video Phase Content -->
+                <div class="hero__video-content">
+                    <div class="container">
+                        <!-- Greeting Tag -->
+                        <div class="hero__greeting">
+                            <span class="hero__greeting-tag">
+                                <span id="greetingText" class="hero__greeting-text">नमस्ते</span>
+                            </span>
+                        </div>
+
+                        <!-- Main Headline -->
+                        <h1 class="hero__video-headline">
+                            From Auli Himalaya
+                        </h1>
+
+                        <!-- Subtitle -->
+                        <p class="hero__video-subtitle">
+                            Witness the breathtaking scale of the Himalayas with us.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image Phase Content -->
+                <div class="hero__image-content">
+                    <!-- Brand Mark -->
+                    <div class="hero__brand-mark">
+                        <div class="hero__brand-line" aria-hidden="true"></div>
+                        <div class="hero__brand-label"><B><i>Cozy Homestay</i></B></div>
+                    </div>
+
+
+                    <!-- Description -->
+                    <p class="hero__welcome-description">
+                        Framed by the Himalayas, fueled by family tradition—experience the true pulse of Garhwal.
+                    </p>
+                </div>
+
+                <!-- Controls -->
+                <div class="hero__controls">
+                    <button id="viewToggle" class="hero__toggle-btn"
+                        aria-label="Toggle between aerial view and homestay view">
+                        <i class="fas fa-exchange-alt" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- Auto Transition Indicator -->
+                <div class="hero__auto-indicator" aria-live="polite">
+                    <div class="hero__auto-timer">
+                        <i class="fas fa-sync-alt" aria-hidden="true"></i>
+                        AUTO-TRANSITION IN <span id="autoTimer">15</span>s
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==================== END NEW HERO ==================== -->
+
+        <!-- Hero Intro (Consolidated with main About) -->
+        <div class="glass about-intro-card"
+            style="max-width:1200px; margin:4rem auto; text-align:center; padding:3rem;">
+            <h2 class="section-title">A Family Legacy in the Mountains</h2>
+            <p style="font-size:1.3rem; max-width:900px; margin:0 auto;">
+                Owned and lovingly hosted by Kishan Singh Rawat and family since 2024. More than a homestay — a home in
+                the Himalayas.
+            </p>
+        </div>
+
+        <!-- ============================================= -->
+        <!-- ABOUT + HOST – 3D FLIP CARD SECTION (FINAL) -->
+        <!-- ============================================= -->
+
+        <section id="about" class="about-host-section">
+            <div class="about-host-container">
+
+                <!-- LEFT: Host Card -->
+                <div class="glass host-card scroll-reveal">
+
+                    <!-- Flip Card -->
+                    <div class="flip-card" id="hostFlipCard">
+
+                        <!-- Flip Indicator -->
+                        <div class="flip-indicator" aria-hidden="true">↻</div>
+
+                        <div class="flip-card-inner">
+
+                            <!-- FRONT: Host / Guide Video -->
+                            <div class="flip-card-front">
+                                <video id="guideVideo" muted loop playsinline preload="metadata" poster="img/Guide.jpg">
+                                    <source src="vido/G22.mp4" type="video/mp4">
+                                </video>
+                            </div>
+
+                            <!-- BACK: Property Video -->
+                            <div class="flip-card-back">
+                                <video id="propertyVideo" muted loop playsinline preload="metadata"
+                                    poster="img/HOMEwtree.png">
+                                    <source src="vido/Homestay.mp4" type="video/mp4">
+                                </video>
+
+                                <!-- Overlay -->
+                                <div class="video-overlay back-overlay">
+                                    <div class="property-content">
+                                        <h5>Our Homestay</h5>
+                                        <p>
+                                            Experience authentic Himalayan hospitality
+                                            in our family-run retreat
+                                        </p>
+                                        <div class="property-tag">
+                                            ★ 4.5 Guest Rating
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Host Text -->
+                    <h3 class="host-title">Meet Your Host</h3>
+                    <h4 class="host-name">Kishan Singh Rawat</h4>
+
+                    <p class="host-quote">
+                        “My dream was to share the raw, untouched beauty of the Himalayas
+                        with the world. Welcome to our home in the clouds.”
+                    </p>
+
+                    <p class="host-meta">
+                        Hosting since 2024 • Speaks English & Hindi • Responds within 24 hrs
+                    </p>
+                </div>
+
+                <!-- RIGHT: About Content -->
+                <div class="about-column scroll-reveal">
+
+                    <h2 class="section-title">
+                        Welcome Home to the Himalayas
+                    </h2>
+
+                    <p>
+                        Nestled in the heart of Joshimath,
+                        <strong>Auli Himalaya Homestay</strong> is more than just a place to stay —
+                        it’s a family. Run with warmth and care, we offer authentic
+                        Garhwali hospitality, serene mountain views, and home-cooked meals
+                        made with local ingredients.
+                    </p>
+
+                    <p>
+                        Whether you're here to ski in Auli, explore ancient trails,
+                        or simply slow down, we promise an experience that feels like home —
+                        only 4,000 feet closer to the sky.
+                    </p>
+
+                    <div class="cta-box">
+                        <p>
+                            Book directly with us for
+                            <strong>best rates, instant confirmation,
+                                and personal care</strong>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Rooms Section -->
+        <section id="rooms">
+            <div class="container-wide">
+                <h2 class="section-title">Our Elegant Rooms</h2>
+
+                <div class="room-card" style="flex-direction:row-reverse;">
+                    <div class="room-slider swiper swiper-room102">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="img-wrapper">
+                                    <img src="img/WhatsApp Image 2025-07-28 at 11.21.57_afda4bb4.jpg" alt="Suite">
+                                    <button class="fullscreen-btn" aria-label="View fullscreen">⛶</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-wrapper">
+                                    <img src="img/view12.png" alt="">
+                                    <button class="fullscreen-btn" aria-label="View fullscreen">⛶</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-wrapper">
+                                    <img src="img/rooftopbathroom2.png" alt="">
+                                    <button class="fullscreen-btn" aria-label="View fullscreen">⛶</button>
+                                </div>
+                            </div>
+                            <!-- ✅ Video slide (YouTube) -->
+                            <div class="swiper-slide video-slide">
+                                <iframe class="room-video-iframe" 
+                                    src="https://www.youtube.com/embed/wsuy6EmIYBs?enablejsapi=1&mute=1&controls=1&rel=0" 
+                                    allow="autoplay; encrypted-media" allowfullscreen 
+                                    style="width:100%; height:100%; border:none;"></iframe>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="room-info">
+                        <h3 class="room-title">Premium Valley Suite</h3>
+                        <p class="room-price">₹4,999 <small style="font-weight:400;">per night</small></p>
+                        <p>Attached balcony • Panoramic views • Luxury amenities</p>
+                        <button class="btn" onclick="location.href='#booking'">Book This Suite</button>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-slider swiper swiper-room101">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="img-wrapper">
+                                    <img src="img/hallroom.png" alt="Suite">
+                                    <button class="fullscreen-btn" aria-label="View fullscreen">⛶</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-wrapper">
+                                    <img src="img/extraBed.png" alt="Suite">
+                                    <button class="fullscreen-btn" aria-label="View fullscreen">⛶</button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-wrapper">
+                                    <img src="img/groundfloorbathroom2.png" alt="Suite">
+                                    <button class="fullscreen-btn" aria-label="View fullscreen">⛶</button>
+                                </div>
+                            </div>
+                            <!-- ✅ Video slide (LAST) -->
+                            <div class="swiper-slide video-slide">
+                                <video muted playsinline controls preload="metadata">
+                                    <source src="vido/grndfloor11.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="room-info">
+                        <h3 class="room-title">Deluxe Mountain View</h3>
+                        <p class="room-price">₹1,999 <small style="font-weight:400;">per night</small></p>
+                        <p>Spacious • Attached bathroom • Up to 4 guests • Extra bed available</p>
+                        <button class="btn" onclick="location.href='#booking'">Book This Room</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking CTA -->
+        <section id="booking" class="section-gap-large"
+            style="text-align:center; background:linear-gradient(135deg,#f8f9f5,#edf2ec);">
+            <h2 class="section-title">Your Himalayan Retreat Awaits</h2>
+            <p style="font-size:1.4rem; max-width:700px; margin:2rem auto;">
+                Secure your stay in under a minute
+            </p>
+            <a href="https://script.google.com/macros/s/AKfycbyd3THEYq3VqXA22Ho0boKVGJkbyZt23ZQ_-mFufFgqWG-i3F0HjruQqzchchUxVfILdw/exec"
+                class="btn" style="font-size:1.3rem; padding:22px 70px;">Book Your Stay</a>
+        </section>
+
+        <!-- Dining Section – Refactored with Global Spacing -->
+        <section id="dining" style="overflow:hidden;">
+            <div class="container-wide">
+                <h2 class="section-title">Himalayan Dining Experience</h2>
+                <p style="text-align:center; font-size:1.35rem; max-width:800px; margin:0 auto 4rem; color:#555;">
+                    Home-cooked with love by our family using fresh mountain herbs, local grains & seasonal produce
+                </p>
+
+                <div class="dining-grid">
+                    <!-- Left: Video (unchanged) -->
+                    <div class="dining-media-wrapper">
+                        <video id="foodVideo" poster="img/food.png" muted loop playsinline preload="metadata">
+                            <source src="vido/food_hover.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-overlay"
+                            style="position:absolute; inset:0; background:rgba(0,0,0,0.25); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.4s;">
+                            <div
+                                style="width:90px; height:90px; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                                <i class="fas fa-play" style="color:white; font-size:2.5rem; margin-left:8px;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Glass card (same content) -->
+                    <div class="glass dining-info-container">
+                        <h3 style="font-size:2.4rem; margin-bottom:1.5rem; color:var(--green);">Authentic Mountain
+                            Flavors
+                        </h3>
+                        <p style="font-size:1.2rem; margin-bottom:2rem; line-height:1.8;">
+                            Every meal is prepared fresh by our family using traditional Garhwali recipes passed down
+                            generations.
+                            Think wood-fire cooked dal, hand-ground spices, wild forest greens, and dessert made from
+                            fresh
+                            rhododendron flowers in season.
+                        </p>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:2rem 0;">
+                            <div><strong style="color:var(--green);">Cuisine</strong><br>Garhwali • North Indian •
+                                Continental</div>
+                            <div><strong style="color:var(--green);">Options</strong><br>Pure Vegetarian &
+                                Non-Vegetarian
+                            </div>
+                            <div><strong style="color:var(--green);">Additional Information</strong><br>• Outside food
+                                allowed • Food delivery available from local restaurants</div>
+                            <div><strong style="color:var(--green-light);">Price</strong><br>Approx ₹500 per person
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- ==================== FINAL REELS GALLERY – PRODUCTION READY ==================== -->
+        <section id="property" style="background:linear-gradient(135deg,#f8f9f5,#edf2ec);">
+            <div class="container-wide">
+                <h2 class="section-title">Our Himalayan Haven – Virtual Tour</h2>
+                <p style="text-align:center; font-size:1.4rem; max-width:800px; margin:0 auto 4rem; color:#555;">
+                    Swipe up/down to walk through our family home in the clouds — every corner crafted for mountain
+                    memories
+                </p>
+
+                <div class="reels-container"
+                    style="display:grid; grid-template-columns:340px 1fr; gap:3rem; height:720px; border-radius:40px; overflow:hidden; box-shadow:var(--shadow-hover); background:var(--card);">
+
+                    <!-- ================= LEFT COLUMN ================= -->
+                    <div
+                        style="background:rgba(255,255,255,0.95); backdrop-filter:blur(20px); padding:2rem; overflow-y:auto; display:flex; flex-direction:column;">
+
+                        <h3 style="color:var(--green); margin-bottom:1.5rem; font-size:1.5rem; text-align:center;">
+                            All Tours
+                        </h3>
+
+                        <!-- Thumbnails -->
+                        <div class="thumbnails-list" style="display:flex; flex-direction:column; gap:1rem;">
+                            <div class="thumbnail-item active" data-video="rooftop">
+                                <div
+                                    style="display:flex; align-items:center; gap:1rem; padding:1rem; background:rgba(255,255,255,0.7); border-radius:20px; border:2px solid transparent;">
+                                    <img src="img/MMM.jpg"
+                                        onerror="this.src='https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=200&q=80'"
+                                        style="width:70px; height:70px; border-radius:16px; object-fit:cover;">
+                                    <div>
+                                        <h4>Rooftop Sunset View</h4>
+                                        <p style="font-size:0.9rem;">45s</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="thumbnail-item" data-video="balcony">
+                                <div
+                                    style="display:flex; align-items:center; gap:1rem; padding:1rem; background:rgba(255,255,255,0.7); border-radius:20px; border:2px solid transparent;">
+                                    <img src="img/view11.png"
+                                        onerror="this.src='https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=300&q=80'"
+                                        style="width:70px; height:70px; border-radius:16px; object-fit:cover;">
+                                    <div>
+                                        <h4>Private Balcony Views</h4>
+                                        <p style="font-size:0.9rem;">28s</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lottie Filler (Desktop only, now CORRECT position) -->
+                        <div class="reels-lottie-fill">
+                            <dotlottie-wc
+                                src="https://lottie.host/7cfee55d-c159-422f-87db-df930724d7d2/xlBGbMs6pX.lottie"
+                                autoplay loop style="width:220px; height:220px;">
+                            </dotlottie-wc>
+                            <span>Swipe to explore</span>
+                        </div>
+                    </div>
+
+                    <!-- ================= RIGHT COLUMN ================= -->
+                    <div class="reels-player"
+                        style="position:relative; background:#000; border-radius:32px; overflow:hidden;">
+
+                        <iframe id="reel-rooftop" class="reel-video active" 
+                            src="https://www.youtube.com/embed/e5HoI4LZCug?autoplay=1&mute=1&loop=1&playlist=e5HoI4LZCug&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1" 
+                            allow="autoplay; encrypted-media" allowfullscreen>
+                        </iframe>
+
+                        <video id="reel-balcony" class="reel-video" muted loop playsinline preload="metadata">
+                            <source src="vido/balcony.mp4" type="video/mp4">
+                        </video>
+
+                        <!-- Overlay UI -->
+                        <div style="position:absolute; inset:0; pointer-events:none; z-index:2;">
+                            <div
+                                style="position:absolute; top:1.5rem; left:1.5rem; background:rgba(0,0,0,0.5); padding:0.8rem 1.2rem; border-radius:50px; backdrop-filter:blur(10px); color:white;">
+                                <strong>Auli Himalaya Homestay</strong>
+                            </div>
+
+                            <div
+                                style="position:absolute; right:1.5rem; bottom:6rem; display:flex; flex-direction:column; gap:1.5rem; pointer-events:auto;">
+                                <button class="control-btn" onclick="previousVideo()" aria-label="Previous Video"><i class="fas fa-chevron-up" style="font-size: 1.2rem;"></i></button>
+                                <button class="control-btn" onclick="nextVideo()" aria-label="Next Video"><i class="fas fa-chevron-down" style="font-size: 1.2rem;"></i></button>
+                            </div>
+
+                            <div style="position:absolute; bottom:1.5rem; left:1.5rem; right:1.5rem;">
+                                <div class="progress-bar" style="display:flex; gap:6px; margin-bottom:1rem;">
+                                    <div class="bar active"></div>
+                                    <div class="bar"></div>
+                                </div>
+                                <h3 id="reel-title" style="color:white; font-size:1.6rem;">
+                                    Full Property Tour
+                                </h3>
+                                <p id="reel-desc" style="color:rgba(255,255,255,0.9);">
+                                    Experience our Himalayan sanctuary from every angle
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- ==================== END REELS GALLERY ==================== -->
+
+        <!-- Amenities – Refactored Grid -->
+        <section id="amenities">
+            <div class="container-wide">
+                <h2 class="section-title">Everything You Need, Elevated</h2>
+                <p style="text-align:center; font-size:1.35rem; max-width:800px; margin:0 auto 5rem; color:#555;">
+                    Thoughtful comforts that make your mountain escape seamless and unforgettable
+                </p>
+
+                <div class="amenities-grid">
+                    <!-- Each amenity -->
+                    <div class="amenity-item" style="text-align:center; padding:2rem 1.5rem; transition:all 0.5s ease;">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-car-side" style="font-size:2.2rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">Pickup & Drop</h4>
+                        <p style="color:#666; font-size:1rem;">Complimentary from Joshimath ISBT / Ropeway</p>
+                    </div>
+
+                    <div class="amenity-item">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-wifi" style="font-size:2.2rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">High-Speed WiFi</h4>
+                        <p style="color:#666; font-size:1rem;">Free throughout the property</p>
+                    </div>
+
+                    <div class="amenity-item">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-parking" style="font-size:2.2rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">Free Parking</h4>
+                        <p style="color:#666; font-size:1rem;">Safe parking for up to 4 cars</p>
+                    </div>
+
+                    <div class="amenity-item">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-credit-card" style="font-size:2.2rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">Card Payment Accepted</h4>
+                        <p style="color:#666; font-size:1rem;">UPI • Debit/Credit Cards</p>
+                    </div>
+
+                    <div class="amenity-item">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-video" style="font-size:2.2rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">24/7 CCTV Security</h4>
+                        <p style="color:#666; font-size:1rem;">Your safety, always</p>
+                    </div>
+
+                    <div class="amenity-item">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-heart" style="font-size:2.2rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">Couple Friendly</h4>
+                        <p style="color:#666; font-size:1rem;">Unmarried couples welcome with valid ID</p>
+                    </div>
+
+                    <div class="amenity-item">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-paw" style="font-size:2.2rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">Pet Friendly</h4>
+                        <p style="color:#666; font-size:1rem;">Your furry friends are welcome</p>
+                    </div>
+
+                    <div class="amenity-item">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-tshirt" style="font-size:2.2rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">Laundry Service</h4>
+                        <p style="color:#666; font-size:1rem;">Same-day washing & ironing</p>
+                    </div>
+
+                    <!-- 9. NEW: Fire Extinguishers -->
+                    <div class="amenity-item">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-fire-extinguisher" style="font-size:2.4rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">Fire Safety</h4>
+                        <p style="color:#666; font-size:1rem;">Fire extinguishers on every floor</p>
+                    </div>
+
+                    <!-- 10. NEW: Room/Property Cleaning -->
+                    <div class="amenity-item">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-broom" style="font-size:2.4rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">Daily Cleaning</h4>
+                        <p style="color:#666; font-size:1rem;">Room & property cleaned daily</p>
+                    </div>
+
+                    <!-- 11. NEW: Trekking & Snow Activities -->
+                    <div class="amenity-item">
+                        <div
+                            style="width:90px; height:90px; background:var(--green-gradient); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 40px rgba(45,106,79,0.3);">
+                            <i class="fas fa-hiking" style="font-size:2.4rem; color:white;"></i>
+                        </div>
+                        <h4 style="font-size:1.4rem; margin-bottom:0.8rem;">Adventure Arrangements</h4>
+                        <p style="color:#666; font-size:1rem;">Trekking, skiing & snow activities</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Property Rules – Clean, Transparent, Premium -->
+        <section id="rules" class="section-gap-large" style="background:linear-gradient(135deg,#f8f9f5,#edf2ec);">
+            <div style="max-width:1100px; margin:0 auto;">
+                <h2 class="section-title">House Rules & Policies</h2>
+                <p style="text-align:center; font-size:1.35rem; max-width:800px; margin:0 auto 5rem; color:#555;">
+                    We believe in transparency — here’s everything you need to know for a smooth stay
+                </p>
+
+                <div class="glass rules-card">
+                    <div class="rules-grid">
+                        <div>
+                            <h3 style="font-size:1.8rem; margin-bottom:1.5rem; color:var(--green);">Check-in & Check-out
+                            </h3>
+                            <ul
+                                style="display:flex; flex-direction:column; gap:0.5rem; font-size:1.15rem; line-height:2.2; list-style-position:inside;">
+                                <li><strong>Check-in:</strong> 12:00 PM onwards</li>
+                                <li><strong>Check-out:</strong> 11:00 AM</li>
+                                <li>Early check-in & late check-out subject to availability</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="font-size:1.8rem; margin-bottom:1.5rem; color:var(--green);">Guest Policies</h3>
+                            <ul
+                                style="display:flex; flex-direction:column; gap:0.5rem; font-size:1.15rem; line-height:2.2; list-style-position:inside;">
+                                <li>Unmarried couples welcome (with valid ID)</li>
+                                <li>Pets allowed (please inform in advance)</li>
+                                <li>Smoking & alcohol permitted in designated areas</li>
+                                <li>Visitors allowed till 10 PM</li>
+                                <li>Private parties/events allowed with prior approval</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background:rgba(45,106,79,0.08); border-radius:24px; padding:2.5rem; margin-top:2rem;">
+                        <h4
+                            style="color:var(--green); margin-bottom:1.2rem; font-size:1.4rem; display:flex; align-items:center; gap:12px;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Important Notes
+                        </h4>
+                        <ul style="margin-top:1rem; font-size:1.1rem; line-height:2; color:#444;">
+                            <li>Primary guest must be at least 18 years old</li>
+                            <li>Valid government ID required: Aadhar, Passport, Driving License (Local IDs accepted)
+                            </li>
+                            <li>Children above 6 years charged as extra person</li>
+                            <li>We reserve the right of admission</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== LOCATION SECTION START ==================== -->
+        <!-- Location & Map Section -->
+        <section id="location" style="position:relative; height:90vh; min-height:720px; padding: 0 !important;">
+            <!-- Background Map -->
+            <iframe
+                src="https://maps.google.com/maps?q=Auli+Himalaya+Homestay,+Joshimath,+Uttarakhand&t=k&z=15&ie=UTF8&iwloc=&output=embed"
+                style="position:absolute; inset:0; width:100%; height:100%; border:0; filter:brightness(0.92);"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+            <!-- Glass Overlay Card -->
+            <div class="glass location-card">
+                <h2 class="section-title">Find Your Way to the Clouds</h2>
+                <p class="location-address">
+                    Auli Himalaya Homestay<br>
+                    Near Auli Ropeway, Joshimath–Auli Road,<br>
+                    Dungri Village, Joshimath, Uttarakhand 246443
+                </p>
+                <div style="display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
+                    <a href="https://maps.google.com/maps?q=Auli+Himalaya+Homestay,+Joshimath" target="_blank"
+                        class="btn" style="padding:18px 50px;">
+                        Get Directions
+                    </a>
+                    <a href="tel:+918800229640" class="btn" style="background:#e74c3c; padding:18px 50px;">
+                        Call for Pickup
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ============================================= -->
+        <!-- NEARBY ATTRACTIONS – INTERACTIVE GALLERY (UMAP) -->
+        <!-- ============================================= -->
+        <section id="nearby">
+            <div class="container-wide">
+                <div class="nearby-header" id="nearbyHeader">
+                    <div class="floating-shapes">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <h2>Explore the <span class="magic-word">Magic</span> Around Us</h2>
+                    <p>Temples, valleys, waterfalls & timeless Himalayan landscapes — moments away from your stay</p>
+                </div>
+
+                <div class="near-grid" id="nearbyGrid">
+
+                    <!-- Card 1 -->
+                    <div class="attraction-card" data-title="Narsingh Temple"
+                        data-desc="Ancient Vishnu temple, one of the 108 Divya Desams" data-dist="1.4 km"
+                        data-tag="Temple" data-type="temple">
+                        <div class="card-media">
+                            <img src="img/narsingh-temple.png" alt="Narsingh Temple"
+                                onerror="this.src='https://picsum.photos/id/1015/600/400'">
+                            <iframe src="https://www.youtube.com/embed/39Egpa9Vz6c?enablejsapi=1&mute=1&controls=0&loop=1&playlist=39Egpa9Vz6c&modestbranding=1" 
+                                allow="autoplay; encrypted-media"></iframe>
+                        </div>
+                        <div class="card-tag">Temple</div>
+                        <div class="card-overlay">
+                            <div>
+                                <h3 style="color:white; font-size:1.4rem; margin:0;">Narsingh Temple</h3>
+                                <p style="color:white; font-size:0.9rem; margin:0; opacity:0.8;">Joshimath</p>
+                                <div class="card-distance">1.4 km away</div>
+                            </div>
+                            <a href="https://www.google.com/maps/search/Narsingh+Temple+Joshimath" target="_blank"
+                                class="card-directions">
+                                <i class="fas fa-location-dot"></i> Directions
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="attraction-card" data-title="Auli Ropeway"
+                        data-desc="Asia's longest cable car ride with panoramic Himalayan views" data-dist="2.1 km"
+                        data-tag="Adventure" data-type="viewpoint">
+                        <div class="card-media">
+                            <img src="img/auli-joshimath.png" alt="Auli Ropeway"
+                                onerror="this.src='https://picsum.photos/id/1018/600/400'">
+                            <video muted loop playsinline>
+                                <source src="vido/auli-joshimath.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="card-tag">Adventure</div>
+                        <div class="card-overlay">
+                            <div>
+                                <h3 style="color:white; font-size:1.4rem; margin:0;">Auli Ropeway</h3>
+                                <p style="color:white; font-size:0.9rem; margin:0; opacity:0.8;">Auli</p>
+                                <div class="card-distance">2.1 km away</div>
+                            </div>
+                            <a href="https://www.google.com/maps/search/Auli+Ropeway" target="_blank"
+                                class="card-directions">
+                                <i class="fas fa-location-dot"></i> Directions
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="attraction-card" data-title="Kalpavriksha"
+                        data-desc="Over 3500-year-old sacred Banyan tree" data-dist="3.2 km" data-tag="Nature"
+                        data-type="nature">
+                        <div class="card-media">
+                            <img src="img/kalpavriksha.png" alt="Kalpavriksha"
+                                onerror="this.src='https://picsum.photos/id/102/600/400'">
+                            <video muted loop playsinline>
+                                <source src="vido/KalpTree.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="card-tag">Nature</div>
+                        <div class="card-overlay">
+                            <div>
+                                <h3 style="color:white; font-size:1.4rem; margin:0;">Kalpavriksha</h3>
+                                <p style="color:white; font-size:0.9rem; margin:0; opacity:0.8;">Joshimath</p>
+                                <div class="card-distance">3.2 km away</div>
+                            </div>
+                            <a href="https://www.google.com/maps/search/Kalpavriksha+Joshimath" target="_blank"
+                                class="card-directions">
+                                <i class="fas fa-location-dot"></i> Directions
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="attraction-card" data-title="Thaing Valley"
+                        data-desc="Hidden meadow paradise with wildflowers" data-dist="1.13 km" data-tag="Valley"
+                        data-type="nature">
+                        <div class="card-media">
+                            <img src="img/THAING_VALLEY.jpg" alt="Thaing Valley"
+                                onerror="this.src='https://picsum.photos/id/1036/600/400'">
+                            <iframe src="https://www.youtube.com/embed/_AI4Qh-SmZA?enablejsapi=1&mute=1&controls=0&loop=1&playlist=_AI4Qh-SmZA&modestbranding=1" 
+                                allow="autoplay; encrypted-media"></iframe>
+                        </div>
+                        <div class="card-tag">Valley</div>
+                        <div class="card-overlay">
+                            <div>
+                                <h3 style="color:white; font-size:1.4rem; margin:0;">Thaing Valley</h3>
+                                <p style="color:white; font-size:0.9rem; margin:0; opacity:0.8;">Joshimath</p>
+                                <div class="card-distance">1.13 km away</div>
+                            </div>
+                            <a href="https://www.google.com/maps/search/Thaing+Valley+Joshimath" target="_blank"
+                                class="card-directions">
+                                <i class="fas fa-location-dot"></i> Directions
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="attraction-card" data-title="Jogidhara Waterfall"
+                        data-desc="Secret waterfall trek through pine forest" data-dist="2.5 km" data-tag="Waterfall"
+                        data-type="waterfall">
+                        <div class="card-media">
+                            <img src="img/Jfall.jpg" alt="Jogidhara Waterfall"
+                                onerror="this.src='https://picsum.photos/id/1040/600/400'">
+                            <video muted loop playsinline>
+                                <source src="vido/jfall.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="card-tag">Waterfall</div>
+                        <div class="card-overlay">
+                            <div>
+                                <h3 style="color:white; font-size:1.4rem; margin:0;">Jogidhara Waterfall</h3>
+                                <p style="color:white; font-size:0.9rem; margin:0; opacity:0.8;">Joshimath</p>
+                                <div class="card-distance">2.5 km away</div>
+                            </div>
+                            <a href="https://www.google.com/maps/search/Jogidhara+Waterfall" target="_blank"
+                                class="card-directions">
+                                <i class="fas fa-location-dot"></i> Directions
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Lottie Card -->
+                    <div class="lottie-blended-element">
+                        <div class="lottie-background-blend">
+                            <div class="inspirational-quote">
+                                <div class="quote-text-box">
+                                    The mountains are calling and I must go
+                                </div>
+                                <div
+                                    style="font-size: 0.8rem; color: rgba(45, 106, 79, 0.8); font-style: italic; margin-top: 0.5rem;">
+                                    — John Muir</div>
+                            </div>
+                            <div class="floating-particles">
+                                <div class="particle" style="top:15%; left:10%;"></div>
+                                <div class="particle" style="top:65%; left:85%;"></div>
+                                <div class="particle" style="top:85%; left:20%;"></div>
+                                <div class="particle" style="top:35%; left:75%;"></div>
+                            </div>
+                            <iframe class="lottie-iframe-blend"
+                                src="https://lottie.host/embed/4f06b830-cdf4-4638-baa2-a34ad60e075e/rdf1qtpf2o.lottie"
+                                title="Himalayan Adventure Animation" frameborder="0" allow="autoplay"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Nearby Modal (UMAP) -->
+        <div class="nearby-modal" id="nearbyModal">
+            <div class="nearby-modal-content">
+                <div class="nearby-modal-close" id="nearbyCloseModal"><i class="fas fa-times"></i></div>
+                <div class="nearby-modal-media" id="nearbyModalMedia"></div>
+                <div class="nearby-modal-info">
+                    <h2 id="nearbyModalTitle"
+                        style="font-family:'Playfair Display',serif; color:var(--green); font-size:2.4rem; margin-bottom:1rem;">
+                    </h2>
+                    <p id="nearbyModalDesc" style="font-size:1.2rem; color:#555; line-height:1.6;"></p>
+                    <div id="nearbyModalDist"
+                        style="margin:1.5rem 0; font-weight:600; color:var(--green); font-size:1.1rem;"></div>
+                    <a id="nearbyModalDirections" target="_blank" class="card-directions"
+                        style="display:inline-flex; text-decoration:none; padding:12px 24px;">
+                        <i class="fas fa-location-dot"></i> Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== LOCATION SECTION END ==================== -->
+
+    </main>
+
+    <footer style="background:#0f1b17; color:#95d5b2; padding:5rem 40px 2.5rem; margin-top:8rem;">
+        <div class="footer-main-grid">
+
+            <!-- 1. Logo + Tagline -->
+            <div class="footer-col">
+                <img src="img/logo.jpg" alt="Auli Himalaya">
+                <p class="footer-tagline">
+                    • Family-run luxury homestay in the clouds.
+                </p>
+            </div>
+
+            <!-- 2. Quick Links -->
+            <div class="footer-col">
+                <h4 style="color:white; font-family:'Playfair Display',serif; font-size:1.25rem; margin-bottom:1rem;">
+                    Explore</h4>
+                <div class="footer-links-grid">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#rooms">Rooms</a>
+                    <a href="#dining">Dining</a>
+                    <a href="#amenities">Amenities</a>
+                    <a href="#rules">House Rules</a>
+                    <a href="#booking">Book Now</a>
+                    <a href="#location">Location</a>
+                </div>
+            </div>
+
+            <!-- 3. Booking Platforms -->
+            <div class="footer-col">
+                <h4 style="color:white; font-family:'Playfair Display',serif; font-size:1.25rem; margin-bottom:1rem;">
+                    Book on</h4>
+                <div class="footer-platforms-list">
+                    <a href="https://www.makemytrip.com/hotels/hotel-details-202410221327178051-auli_himalaya_homestay-auli.html"
+                        target="_blank" class="footer-link">MakeMyTrip</a>
+                    <a href="https://share.google/6knR0Ax7kpBDUbTIG" target="_blank" class="footer-link">Goibibo</a>
+                    <a href="https://share.google/AFAZ8B7Q7VGIHADyW" target="_blank" class="footer-link">Agoda</a>
+                </div>
+            </div>
+
+            <!-- 4. Contact + Social -->
+            <div class="footer-col">
+                <h4 style="color:white; font-family:'Playfair Display',serif; font-size:1.25rem; margin-bottom:1rem;">
+                    Connect</h4>
+                <p style="font-size:0.95rem; line-height:1.7; margin-bottom:1.2rem;">
+                    <a href="tel:+918800229640" style="color:#95d5b2;">+91 88002 29640</a><br>
+                    <a href="mailto:aulihimalayahomestay@gmail.com"
+                        style="color:#95d5b2;">aulihimalayahomestay@gmail.com</a>
+                </p>
+
+                <div style="display:flex; gap:1rem;">
+                    <a href="https://www.facebook.com/aulihimalayahomestay" target="_blank" aria-label="Facebook"
+                        class="social-circle">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/aulihimalaya_" target="_blank" aria-label="Instagram"
+                        class="social-circle">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/918800229640" target="_blank" aria-label="WhatsApp" class="social-circle">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            © 2025 Auli Himalaya Homestay • Crafted with love in the Himalayas
+        </div>
+    </footer>
+
+    <!-- Fullscreen Gallery Overlay (GLOBAL – keep at end of body) -->
+    <div id="fullscreenGallery" class="fullscreen-gallery">
+        <div class="swiper fullscreen-swiper">
+            <div class="swiper-wrapper"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <button class="close-fullscreen">✕</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // ========== NEW HERO SECTION FUNCTIONALITY ==========
+        (function () {
+            'use strict';
+
+            // ========== CONFIGURATION ==========
+            const CONFIG = {
+                autoTransitionDelay: 15, // seconds
+                greetingRotationDelay: 2500, // milliseconds
+                transitionDuration: 800, // milliseconds
+                videoRetryDelay: 3000 // milliseconds
+            };
+
+            // ========== DOM ELEMENTS ==========
+            const heroSection = document.getElementById('home');
+            const videoLayer = document.querySelector('.hero__background-layer--video');
+            const imageLayer = document.querySelector('.hero__background-layer--image');
+            const heroVideo = document.getElementById('heroVideo');
+            const viewToggle = document.getElementById('viewToggle');
+            const autoTimer = document.getElementById('autoTimer');
+            const greetingText = document.getElementById('greetingText');
+            const videoContent = document.querySelector('.hero__video-content');
+            const imageContent = document.querySelector('.hero__image-content');
+
+            // ========== STATE MANAGEMENT ==========
+            const state = {
+                isVideoPhase: true,
+                isTransitioning: false,
+                autoTransitionInterval: null,
+                greetingInterval: null,
+                countdown: CONFIG.autoTransitionDelay,
+                greetingIndex: 0,
+                isMobile: window.innerWidth <= 768
+            };
+
+            // ========== GREETINGS DATA ==========
+            const GREETINGS = [
+                "जय बद्री विशाल!🙏",    // Hindi
+                "Welcome",   // English
+                "Bonjour",   // French
+                "Hola",      // Spanish
+                "Ciao",      // Italian
+                "こんにちは",  // Japanese
+                "안녕하세요"   // Korean
+            ];
+
+            // ========== CORE FUNCTIONS ==========
+
+            /**
+             * Initialize the hero section
+             */
+            function initHero() {
+                removeLoadingState();
+                setupEventListeners();
+                startGreetingRotation();
+                startAutoTransition();
+                attemptVideoAutoplay();
+                setupVideoEventListeners();
+                checkReducedMotionPreference();
+                updateLayoutForViewport();
+            }
+
+            /**
+             * Remove initial loading state
+             */
+            function removeLoadingState() {
+                heroSection.classList.remove('hero--loading');
+            }
+
+            /**
+             * Setup all event listeners
+             */
+            function setupEventListeners() {
+                // View toggle button
+                viewToggle.addEventListener('click', handleViewToggle);
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', handleKeyboardShortcuts);
+
+                // Pause auto-transition on interaction
+                heroSection.addEventListener('mouseenter', pauseAutoTransition);
+                heroSection.addEventListener('mouseleave', resumeAutoTransition);
+
+                // Touch events for mobile
+                heroSection.addEventListener('touchstart', handleTouchStart);
+                heroSection.addEventListener('touchend', handleTouchEnd);
+
+                // Window resize
+                window.addEventListener('resize', debounce(handleWindowResize, 250));
+            }
+
+            /**
+             * Start greeting text rotation
+             */
+            function startGreetingRotation() {
+                state.greetingInterval = setInterval(rotateGreeting, CONFIG.greetingRotationDelay);
+            }
+
+            /**
+             * Rotate through greeting phrases
+             */
+            function rotateGreeting() {
+                // Fade out current greeting
+                greetingText.classList.add('hero__greeting-text--fade-out');
+
+                setTimeout(() => {
+                    // Update to next greeting
+                    state.greetingIndex = (state.greetingIndex + 1) % GREETINGS.length;
+                    greetingText.textContent = GREETINGS[state.greetingIndex];
+
+                    // Fade in new greeting
+                    greetingText.classList.remove('hero__greeting-text--fade-out');
+                    greetingText.classList.add('hero__greeting-text--fade-in');
+
+                    // Remove fade-in class after animation completes
+                    setTimeout(() => {
+                        greetingText.classList.remove('hero__greeting-text--fade-in');
+                    }, 600);
+                }, 400);
+            }
+
+            /**
+             * Switch to video phase
+             */
+            function showVideoPhase() {
+                if (state.isTransitioning) return;
+
+                state.isTransitioning = true;
+                state.isVideoPhase = true;
+
+                // Update background layers
+                videoLayer.classList.add('hero__background-layer--active');
+                imageLayer.classList.remove('hero__background-layer--active');
+
+                // Update content visibility
+                videoContent.classList.remove('hero__video-content--hidden');
+                imageContent.classList.remove('hero__image-content--active');
+
+                // Update toggle button
+                updateToggleButton('video');
+
+                // Play video
+                playVideo();
+
+                // Reset transition state
+                setTimeout(() => {
+                    state.isTransitioning = false;
+                }, CONFIG.transitionDuration);
+
+                // Reset auto-transition
+                resetAutoTransition();
+            }
+
+            /**
+             * Switch to image phase
+             */
+            function showImagePhase() {
+                if (state.isTransitioning) return;
+
+                state.isTransitioning = true;
+                state.isVideoPhase = false;
+
+                // Update background layers
+                imageLayer.classList.add('hero__background-layer--active');
+                videoLayer.classList.remove('hero__background-layer--active');
+
+                // Update content visibility
+                imageContent.classList.add('hero__image-content--active');
+                videoContent.classList.add('hero__video-content--hidden');
+
+                // Update toggle button
+                updateToggleButton('image');
+
+                // Pause video
+                if (heroVideo && heroVideo.contentWindow) {
+                    heroVideo.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                }
+
+                // Reset transition state
+                setTimeout(() => {
+                    state.isTransitioning = false;
+                }, CONFIG.transitionDuration);
+
+                // Reset auto-transition
+                resetAutoTransition();
+            }
+
+            /**
+             * Handle view toggle button click
+             */
+            function handleViewToggle() {
+                if (state.isTransitioning) return;
+
+                if (state.isVideoPhase) {
+                    showImagePhase();
+                } else {
+                    showVideoPhase();
+                }
+
+                // Reset auto-transition on manual toggle
+                resetAutoTransition();
+            }
+
+            /**
+             * Update toggle button icon and label
+             */
+            function updateToggleButton(phase) {
+                if (phase === 'video') {
+                    viewToggle.innerHTML = '<i class="fas fa-exchange-alt" aria-hidden="true"></i>';
+                    viewToggle.setAttribute('aria-label', 'Switch to homestay welcome view');
+                } else {
+                    viewToggle.innerHTML = '<i class="fas fa-play-circle" aria-hidden="true"></i>';
+                    viewToggle.setAttribute('aria-label', 'Switch to aerial drone view');
+                }
+            }
+
+            // ========== VIDEO MANAGEMENT ==========
+
+            /**
+             * Attempt to autoplay video with fallback
+             */
+            function attemptVideoAutoplay() {
+                // For YouTube iframe, autoplay is handled via URL parameters
+                // but we can try to send a play command just in case
+                playVideo();
+            }
+
+            /**
+             * Handle video autoplay error
+             */
+            function handleVideoAutoplayError(error) {
+                console.log('Video autoplay prevented:', error.message);
+                showVideoFallbackImage();
+            }
+
+            /**
+             * Show fallback image when video fails
+             */
+            function showVideoFallbackImage() {
+                const fallback = document.querySelector('.hero__video-fallback');
+                if (fallback) {
+                    fallback.style.display = 'block';
+                    heroVideo.style.display = 'none';
+                }
+            }
+
+            /**
+             * Play video with YouTube command
+             */
+            function playVideo() {
+                if (heroVideo && heroVideo.contentWindow) {
+                    heroVideo.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                }
+            }
+
+            /**
+             * Setup video event listeners
+             */
+            function setupVideoEventListeners() {
+                // YouTube Iframe doesn't support standard video events directly on the element.
+                // Looping and error handling are managed via URL parameters and the iframe itself.
+            }
+
+            /**
+             * Handle video error
+             */
+            function handleVideoError() {
+                console.log('Video failed to load, switching to image view');
+                showImagePhase();
+                clearAutoTransition();
+                autoTimer.textContent = '--';
+                showVideoFallbackImage();
+            }
+
+            /**
+             * Handle video ended event (loop)
+             */
+            function handleVideoEnded() {
+                heroVideo.currentTime = 0;
+                heroVideo.play();
+            }
+
+            // ========== AUTO-TRANSITION MANAGEMENT ==========
+
+            /**
+             * Start auto-transition countdown
+             */
+            function startAutoTransition() {
+                clearInterval(state.autoTransitionInterval);
+
+                state.autoTransitionInterval = setInterval(() => {
+                    state.countdown--;
+                    autoTimer.textContent = state.countdown;
+
+                    if (state.countdown <= 0) {
+                        handleViewToggle();
+                    }
+                }, 1000);
+            }
+
+            /**
+             * Reset auto-transition timer
+             */
+            function resetAutoTransition() {
+                state.countdown = CONFIG.autoTransitionDelay;
+                autoTimer.textContent = state.countdown;
+                startAutoTransition();
+            }
+
+            /**
+             * Clear auto-transition interval
+             */
+            function clearAutoTransition() {
+                clearInterval(state.autoTransitionInterval);
+                state.autoTransitionInterval = null;
+            }
+
+            /**
+             * Pause auto-transition
+             */
+            function pauseAutoTransition() {
+                clearAutoTransition();
+                autoTimer.textContent = 'PAUSED';
+            }
+
+            /**
+             * Resume auto-transition
+             */
+            function resumeAutoTransition() {
+                startAutoTransition();
+            }
+
+            // ========== ACCESSIBILITY FEATURES ==========
+
+            /**
+             * Handle keyboard shortcuts
+             */
+            function handleKeyboardShortcuts(event) {
+                switch (event.key) {
+                    case ' ':
+                    case 'Spacebar':
+                        event.preventDefault();
+                        handleViewToggle();
+                        break;
+
+                    case 'Escape':
+                        if (state.isVideoPhase) {
+                            showImagePhase();
+                        } else {
+                            showVideoPhase();
+                        }
+                        break;
+                }
+            }
+
+            /**
+             * Check for reduced motion preference
+             */
+            function checkReducedMotionPreference() {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                if (prefersReducedMotion) {
+                    disableAnimations();
+                }
+            }
+
+            /**
+             * Disable animations for reduced motion preference
+             */
+            function disableAnimations() {
+                clearAutoTransition();
+                clearInterval(state.greetingInterval);
+
+                autoTimer.textContent = 'OFF';
+
+                const indicator = document.querySelector('.hero__auto-indicator');
+                if (indicator) {
+                    indicator.innerHTML = '<div><i class="fas fa-ban" aria-hidden="true"></i> AUTO-TRANSITION DISABLED</div>';
+                }
+            }
+
+            // ========== RESPONSIVE HANDLING ==========
+
+            /**
+             * Handle window resize
+             */
+            function handleWindowResize() {
+                state.isMobile = window.innerWidth <= 768;
+                updateLayoutForViewport();
+            }
+
+            /**
+             * Update layout based on viewport size
+             */
+            function updateLayoutForViewport() {
+                if (state.isMobile) {
+                    optimizeForMobile();
+                }
+            }
+
+            /**
+             * Optimize layout for mobile devices
+             */
+            function optimizeForMobile() {
+                // Mobile-specific optimizations can be added here
+            }
+
+            // ========== TOUCH HANDLING ==========
+            let touchStartY = 0;
+
+            /**
+             * Handle touch start event
+             */
+            function handleTouchStart(event) {
+                touchStartY = event.touches[0].clientY;
+                pauseAutoTransition();
+            }
+
+            /**
+             * Handle touch end event
+             */
+            function handleTouchEnd() {
+                resumeAutoTransition();
+            }
+
+            // ========== UTILITY FUNCTIONS ==========
+
+            /**
+             * Debounce function for performance
+             */
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            // ========== INITIALIZATION ==========
+
+            // Initialize hero section when DOM is loaded
+            document.addEventListener('DOMContentLoaded', initHero);
+
+            // Fallback: If video doesn't load within timeout, show image phase
+            setTimeout(() => {
+                if (heroVideo.readyState < 3) { // HAVE_FUTURE_DATA or more
+                    console.log('Video loading timeout, showing image view');
+                    showImagePhase();
+                }
+            }, CONFIG.videoRetryDelay);
+        })();
+
+        // ========== ROOM SWIPERS – FINAL VIDEO-SAFE VERSION ==========
+        function setupRoomSwiper(selector) {
+            return new Swiper(selector, {
+                loop: true,
+                observer: true,
+                observeParents: true,
+                pagination: {
+                    el: `${selector} .swiper-pagination`,
+                    clickable: true
+                },
+                on: {
+                    slideChangeTransitionStart() {
+                        // Pause & reset all videos when leaving slide
+                        this.el.querySelectorAll('video').forEach(video => {
+                            video.pause();
+                            video.currentTime = 0;
+                        });
+                    },
+                    slideChangeTransitionEnd() {
+                        // Play only if active slide has a video
+                        const activeSlide = this.slides[this.activeIndex];
+                        const video = activeSlide.querySelector('video');
+                        if (video) {
+                            video.muted = true;
+                            video.volume = 0;
+                            video.play().catch(() => { });
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize room swipers
+        document.addEventListener('DOMContentLoaded', () => {
+            setupRoomSwiper('.swiper-room101');
+            setupRoomSwiper('.swiper-room102');
+        });
+
+        // ========== FULLSCREEN IMAGE GALLERY LOGIC ==========
+        let fullscreenSwiper = null;
+
+        document.addEventListener("click", (e) => {
+            const btn = e.target.closest(".fullscreen-btn");
+            if (!btn) return;
+
+            const slider = btn.closest(".room-slider");
+            const images = slider.querySelectorAll(".img-wrapper img");
+            const wrapper = document.querySelector(".fullscreen-swiper .swiper-wrapper");
+
+            wrapper.innerHTML = "";
+
+            images.forEach(img => {
+                const div = document.createElement("div");
+                div.className = "swiper-slide";
+                div.innerHTML = `<img src="${img.src}" alt="">`;
+                wrapper.appendChild(div);
+            });
+
+            document.getElementById("fullscreenGallery").classList.add("active");
+
+            if (fullscreenSwiper) fullscreenSwiper.destroy(true, true);
+
+            fullscreenSwiper = new Swiper(".fullscreen-swiper", {
+                loop: true,
+                observer: true,
+                observeParents: true,
+                pagination: {
+                    el: ".fullscreen-swiper .swiper-pagination",
+                    clickable: true
+                }
+            });
+        });
+
+        // Close fullscreen
+        document.querySelector(".close-fullscreen").addEventListener("click", () => {
+            document.getElementById("fullscreenGallery").classList.remove("active");
+            if (fullscreenSwiper) fullscreenSwiper.destroy(true, true);
+        });
+
+        // ========== SMOOTH SCROLL FOR NAVIGATION ==========
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    document.body.classList.remove('menu-active');
+                }
+            });
+        });
+
+        // ========== MOBILE MENU TOGGLE LOGIC ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('mobile-menu');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    document.body.classList.toggle('menu-active');
+                });
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                    document.body.classList.remove('menu-active');
+                }
+            });
+        });
+
+        // ========== HEADER SCROLL & HIDE LOGIC ==========
+        // ========== ENHANCED FOOD VIDEO – PLAY ON HOVER + TOUCH FRIENDLY ==========
+        document.addEventListener("DOMContentLoaded", () => {
+            const video = document.getElementById("foodVideo");
+            const overlay = document.querySelector("#dining .video-overlay");
+
+            if (!video || !overlay) return;
+
+            const playVideo = () => {
+                video.play();
+                overlay.style.opacity = "0";
+            };
+            const pauseVideo = () => {
+                video.pause();
+                overlay.style.opacity = "1";
+            };
+
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+            if (isMobile) {
+                // Play like a GIF on scroll for mobile
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            playVideo();
+                        } else {
+                            pauseVideo();
+                        }
+                    });
+                }, { threshold: 0.3 });
+                observer.observe(video.parentElement);
+            } else {
+                // Desktop Hover
+                video.parentElement.addEventListener("mouseenter", playVideo);
+                video.parentElement.addEventListener("mouseleave", pauseVideo);
+                
+                // Mobile Tap fallback
+                video.parentElement.addEventListener("click", () => {
+                    if (video.paused) playVideo();
+                    else pauseVideo();
+                });
+            }
+
+            // Preload poster so no flash
+            video.load();
+        });
+        // ========== ABOUT SECTION – FLIP CARD + DUAL VIDEOS (PROTOTYPE-ACCURATE) ==========
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const flipCard = document.getElementById("hostFlipCard");
+            const flipInner = flipCard?.querySelector(".flip-card-inner");
+            const guideVideo = document.getElementById("guideVideo");
+            const propertyVideo = document.getElementById("propertyVideo");
+
+            if (!flipCard || !flipInner || !guideVideo || !propertyVideo) return;
+
+            const isTouchDevice = window.matchMedia("(hover: none)").matches;
+
+            let hoverFlipTimer = null;
+            let autoFlipTimer = null;
+            let userInteracted = false;
+
+            /* --------------------------------------------------
+               UTILITIES
+            -------------------------------------------------- */
+
+            function stopAllVideos() {
+                [guideVideo, propertyVideo].forEach(video => {
+                    video.pause();
+                    video.currentTime = 0;
+                });
+            }
+
+            function isFlipped() {
+                return flipCard.classList.contains("is-flipped");
+            }
+
+            function playVisibleVideo() {
+                stopAllVideos();
+                (isFlipped() ? propertyVideo : guideVideo)
+                    .play()
+                    .catch(() => { });
+            }
+
+            function flipToBack() {
+                flipCard.classList.add("is-flipped");
+            }
+
+            function flipToFront() {
+                flipCard.classList.remove("is-flipped");
+            }
+
+            /* --------------------------------------------------
+               DESKTOP: HOVER → DELAY → FLIP (KEY DIFFERENCE)
+            -------------------------------------------------- */
+
+            if (!isTouchDevice) {
+                flipCard.addEventListener("mouseenter", () => {
+                    userInteracted = true;
+                    stopAutoFlip();
+
+                    playVisibleVideo();
+
+                    // ⏳ Delay flip so hover effect is enjoyable
+                    hoverFlipTimer = setTimeout(() => {
+                        flipToBack();
+                    }, 1200); // <-- THIS is what your site was missing
+                });
+
+                flipCard.addEventListener("mouseleave", () => {
+                    clearTimeout(hoverFlipTimer);
+                    stopAllVideos();
+
+                    // Smooth reset
+                    setTimeout(() => {
+                        flipToFront();
+                    }, 400);
+
+                    startAutoFlip();
+                });
+            }
+
+            /* --------------------------------------------------
+               MOBILE: TAP TO FLIP (CONTROLLED)
+            -------------------------------------------------- */
+
+            if (isTouchDevice) {
+                flipCard.addEventListener("click", () => {
+                    userInteracted = true;
+                    stopAutoFlip();
+
+                    if (isFlipped()) {
+                        flipToFront();
+                        stopAllVideos();
+                        guideVideo.play().catch(() => { });
+                    } else {
+                        flipToBack();
+                        stopAllVideos();
+                        propertyVideo.play().catch(() => { });
+                    }
+                });
+            }
+
+            /* --------------------------------------------------
+               VIDEO SYNC WITH FLIP END (IMPORTANT)
+            -------------------------------------------------- */
+
+            flipInner.addEventListener("transitionend", () => {
+                playVisibleVideo();
+            });
+
+            /* --------------------------------------------------
+               AUTO FLIP (STORYTELLING LOOP — LIKE PROTOTYPE)
+            -------------------------------------------------- */
+
+            function startAutoFlip() {
+                if (userInteracted) return;
+
+                autoFlipTimer = setTimeout(() => {
+                    flipToBack();
+                    playVisibleVideo();
+
+                    setTimeout(() => {
+                        flipToFront();
+                        playVisibleVideo();
+                        startAutoFlip();
+                    }, 3500);
+
+                }, 5000);
+            }
+
+            function stopAutoFlip() {
+                clearTimeout(autoFlipTimer);
+            }
+
+            startAutoFlip();
+
+            /* --------------------------------------------------
+               SCROLL REVEAL (UNCHANGED BUT STABLE)
+            -------------------------------------------------- */
+
+            const revealElements = document.querySelectorAll(".scroll-reveal");
+
+            const revealObserver = new IntersectionObserver(
+                entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("revealed");
+                        }
+                    });
+                },
+                { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+            );
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0) {
+                        el.classList.add("revealed");
+                    }
+                });
+            }, 500);
+
+            /* --------------------------------------------------
+               STRONG TEXT HOVER (MICRO-INTERACTION)
+            -------------------------------------------------- */
+
+            document.querySelectorAll("strong").forEach(el => {
+                if (!el.closest(".cta-box")) {
+                    el.addEventListener("mouseenter", () => {
+                        el.style.color = "var(--green-light)";
+                        el.style.transition = "color 0.3s ease";
+                    });
+                    el.addEventListener("mouseleave", () => {
+                        el.style.color = "";
+                    });
+                }
+            });
+
+        });
+
+
+        // ========== NEARBY ATTRACTIONS (REPLACED WITH UMAP LOGIC) ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            const nearbyHeader = document.getElementById('nearbyHeader');
+            const nearbyGrid = document.getElementById('nearbyGrid');
+            const attrCards = document.querySelectorAll('.attraction-card');
+            const modal = document.getElementById('nearbyModal');
+            const modalMedia = document.getElementById('nearbyModalMedia');
+            const modalTitle = document.getElementById('nearbyModalTitle');
+            const modalDesc = document.getElementById('nearbyModalDesc');
+            const modalDist = document.getElementById('nearbyModalDist');
+            const modalDir = document.getElementById('nearbyModalDirections');
+            const closeModal = document.getElementById('nearbyCloseModal');
+
+            // 1. Intersection Observer for scroll animations
+            const nearbyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            if (nearbyHeader) nearbyObserver.observe(nearbyHeader);
+            if (nearbyGrid) nearbyObserver.observe(nearbyGrid);
+
+            // 1b. Background Parallax (Scroll & Mouse)
+            const shapes = document.querySelectorAll('.floating-shapes div');
+
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const headerTop = nearbyHeader.offsetTop;
+                const headerHeight = nearbyHeader.offsetHeight;
+
+                // Only animate if in view to save performance
+                if (scrolled > headerTop - window.innerHeight && scrolled < headerTop + headerHeight) {
+                    const relativeScroll = (scrolled - headerTop) * 0.15;
+                    shapes.forEach((shape, idx) => {
+                        const speed = (idx + 1) * 0.4;
+                        shape.style.transform = `translateY(${relativeScroll * speed}px)`;
+                    });
+                }
+            });
+
+            // Subtle mouse parallax for the "Magic" feel
+            nearbyHeader.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                const { left, top, width, height } = nearbyHeader.getBoundingClientRect();
+                const x = (clientX - left) / width - 0.5;
+                const y = (clientY - top) / height - 0.5;
+
+                shapes.forEach((shape, idx) => {
+                    const factor = (idx + 1) * 20;
+                    shape.style.left = `calc(${shape.offsetLeft}px + ${x * factor}px)`;
+                    shape.style.top = `calc(${shape.offsetTop}px + ${y * factor}px)`;
+                    shape.style.transition = 'none'; // Instant feedback on mousemove
+                });
+            });
+
+            // Reset circles on mouseleave
+            nearbyHeader.addEventListener('mouseleave', () => {
+                shapes.forEach(shape => {
+                    shape.style.transition = 'all 1s ease-out';
+                    shape.style.left = ''; // Revert to CSS values
+                    shape.style.top = '';
+                });
+            });
+
+            // 2. Card Interactions (Video Play on Hover or Scroll on Mobile)
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+            
+            let cardObserver;
+            if (isMobile) {
+                cardObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const video = entry.target.querySelector('video');
+                        const iframe = entry.target.querySelector('iframe');
+                        
+                        if (entry.isIntersecting) {
+                            if (video) video.play().catch(() => { });
+                            if (iframe) iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                        } else {
+                            if (video) {
+                                video.pause();
+                                video.currentTime = 0;
+                            }
+                            if (iframe) iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                        }
+                    });
+                }, { threshold: 0.5 });
+            }
+
+            attrCards.forEach(card => {
+                const video = card.querySelector('video');
+                const iframe = card.querySelector('iframe');
+
+                if (isMobile) {
+                    cardObserver.observe(card);
+                } else {
+                    card.addEventListener('mouseenter', () => {
+                        if (video) video.play().catch(() => { });
+                        if (iframe) iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        if (video) {
+                            video.pause();
+                            video.currentTime = 0;
+                        }
+                        if (iframe) iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                    });
+                }
+
+                // 3. Modal Open Logic
+                card.addEventListener('click', (e) => {
+                    // Don't open modal if clicking the Directions button
+                    if (e.target.closest('.card-directions')) return;
+
+                    const title = card.dataset.title;
+                    const desc = card.dataset.desc;
+                    const dist = card.dataset.dist;
+                    const url = card.querySelector('.card-directions').getAttribute('href');
+                    const mediaHtml = card.querySelector('.card-media').innerHTML;
+
+                    modalTitle.textContent = title;
+                    modalDesc.textContent = desc;
+                    modalDist.textContent = `Distance: ${dist} from homestay`;
+                    modalDir.setAttribute('href', url);
+                    modalMedia.innerHTML = mediaHtml;
+
+                    // If it's a video in modal, make it autoplay and show it
+                    const mVideo = modalMedia.querySelector('video');
+                    const mIframe = modalMedia.querySelector('iframe');
+
+                    if (mVideo) {
+                        mVideo.style.opacity = '1';
+                        mVideo.controls = true;
+                        mVideo.play().catch(() => { });
+                    }
+                    if (mIframe) {
+                        mIframe.style.opacity = '1';
+                        // Update iframe src to show controls in modal if needed
+                        let src = mIframe.getAttribute('src');
+                        if (src.includes('controls=0')) {
+                            mIframe.setAttribute('src', src.replace('controls=0', 'controls=1'));
+                        }
+                        setTimeout(() => {
+                            mIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                        }, 500);
+                    }
+
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // 4. Modal Close Logic
+            const closeNearbyModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                modalMedia.innerHTML = '';
+            };
+
+            if (closeModal) closeModal.addEventListener('click', closeNearbyModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeNearbyModal();
+            });
+
+            // 5. Quote Rotation for Lottie Card
+            const travelQuotes = [
+                { text: "The mountains are calling and I must go", author: "John Muir" },
+                { text: "Not all those who wander are lost", author: "J.R.R. Tolkien" },
+                { text: "Travel far enough to meet yourself", author: "David Mitchell" },
+                { text: "Wherever you go becomes a part of you somehow", author: "Anita Desai" },
+                { text: "The journey itself is my home", author: "Matsuo Bashō" }
+            ];
+
+            const quoteBox = document.querySelector('.quote-text-box');
+            const quoteAuthor = quoteBox?.nextElementSibling;
+            let quoteIdx = 0;
+
+            if (quoteBox) {
+                setInterval(() => {
+                    quoteIdx = (quoteIdx + 1) % travelQuotes.length;
+                    quoteBox.style.opacity = '0';
+                    setTimeout(() => {
+                        quoteBox.textContent = travelQuotes[quoteIdx].text;
+                        if (quoteAuthor) quoteAuthor.textContent = `— ${travelQuotes[quoteIdx].author}`;
+                        quoteBox.style.opacity = '1';
+                    }, 500);
+                }, 6000);
+            }
+        });
+
+        // ========== REELS GALLERY – FINAL WORKING VERSION ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            const videos = {
+                'rooftop': { el: document.getElementById('reel-rooftop'), title: 'Rooftop Sunset View', desc: '360° mountain panorama at golden hour' },
+                'balcony': { el: document.getElementById('reel-balcony'), title: 'Private Balcony Views', desc: 'Valley-facing serenity from your room' },
+            };
+
+            let current = 'rooftop';
+
+            function play(id) {
+                // Hide all
+                Object.values(videos).forEach(v => {
+                    v.el.classList.remove('active');
+                    if (v.el.tagName === 'IFRAME') {
+                        v.el.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                    } else {
+                        v.el.pause();
+                    }
+                });
+                document.querySelectorAll('.thumbnail-item').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.progress-bar .bar').forEach(b => b.classList.remove('active'));
+
+                // Show selected
+                videos[id].el.classList.add('active');
+                if (videos[id].el.tagName === 'IFRAME') {
+                    videos[id].el.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                } else {
+                    videos[id].el.play();
+                }
+                document.querySelector(`[data-video="${id}"]`).classList.add('active');
+                document.getElementById('reel-title').textContent = videos[id].title;
+                document.getElementById('reel-desc').textContent = videos[id].desc;
+
+                // Progress bar
+                const keys = Object.keys(videos);
+                const index = keys.indexOf(id);
+                document.querySelectorAll('.progress-bar .bar').forEach((bar, i) => {
+                    bar.classList.toggle('active', i === index);
+                });
+
+                current = id;
+            }
+
+            // Thumbnail click
+            document.querySelectorAll('.thumbnail-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    play(item.dataset.video);
+                });
+            });
+
+            // Swipe & wheel
+            const player = document.querySelector('.reels-player');
+            let startY = 0;
+
+            player.addEventListener('touchstart', e => startY = e.touches[0].clientY);
+            player.addEventListener('touchend', e => {
+                const diff = startY - e.changedTouches[0].clientY;
+                if (Math.abs(diff) > 60) {
+                    diff > 0 ? nextVideo() : previousVideo();
+                }
+            });
+
+            player.addEventListener('wheel', e => {
+                if (Math.abs(e.deltaY) > 30) {
+                    e.deltaY > 0 ? nextVideo() : previousVideo();
+                }
+            });
+
+            window.nextVideo = function() {
+                const keys = Object.keys(videos);
+                const next = keys[(keys.indexOf(current) + 1) % keys.length];
+                play(next);
+            };
+            window.previousVideo = function() {
+                const keys = Object.keys(videos);
+                const prev = keys[(keys.indexOf(current) - 1 + keys.length) % keys.length];
+                play(prev);
+            };
+
+            // Start
+            play('rooftop');
+        });
+
+        // ========== HEADER SCROLL BEHAVIOR ==========
+        let lastScrollY = window.scrollY;
+        const header = document.querySelector("header");
+        const heroSection = document.querySelector("#home");
+
+        window.addEventListener("scroll", () => {
+            const currentScrollY = window.scrollY;
+            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+
+            /* Hero transparent logic */
+            if (currentScrollY < heroBottom - 100) {
+                header.classList.add("on-hero");
+                header.classList.remove("scrolled");
+            } else {
+                header.classList.remove("on-hero");
+                header.classList.add("scrolled");
+            }
+
+            /* Hide / Show logic */
+            if (currentScrollY > lastScrollY && currentScrollY > 150) {
+                header.classList.add("hide");
+            } else {
+                header.classList.remove("hide");
+            }
+
+            lastScrollY = currentScrollY;
+        });
+    </script>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module">
+    </script>
+</body>
+
+</html>
